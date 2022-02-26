@@ -1,0 +1,16 @@
+w1/01.secret
+w1/01.gitignore
+w1/01/contracts/artifacts/*
+
+
+w1/02/node_modules
+w1/02/.env
+w1/02/coverage
+w1/02/coverage.json
+w1/02/typechain
+
+#Hardhat files
+w1/02/cache
+w1/02/artifacts
+
+w1/02/.secret
