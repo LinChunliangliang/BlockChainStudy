@@ -20,16 +20,16 @@ contract Ballot {
         uint voteCount;
     }
 
-    address public chairperson;
+    address public chairperson;  //主席
 
     // 声明了一个状态变量，为每个可能的地址存储一个'Voter'
     mapping(address => Voter) public voters;
 
-    // 一个'Proposal'结构类型的动态数组
+    // 一个'Proposal'结构类型的动态数组,以支持多个提案？？
     Proposal[] public proposals;
 
     // 为'proposalNames'中的每个提案，创建一个新的（投票）表决
-    constructor(bytes32 memory proposalNames) {
+    constructor(bytes32[] memory proposalNames) {
         chairperson = msg.sender;
         voters[chairperson].weight=1;
         // 对于提供的每个提案名称，
@@ -43,7 +43,7 @@ contract Ballot {
     }
 
     // 授权`voter`对这个投票表决进行投票
-    // 只有chairperson 可以调用该函数
+    // 只有 chairperson 可以调用该函数
     function giveRightToVote(address voter) public {
         /*
         若require的第一个参数的计算结果为false
@@ -51,6 +51,7 @@ contract Ballot {
         在旧版的EVM中这曾经会消耗所有gas，但现在不会了
         */
 
+        // 判断调用者是不是
         require(
             msg.sender ==chairperson,
             "Only chairperson can give right to vote."
@@ -60,25 +61,27 @@ contract Ballot {
             !voters[voter].voted,
             "The voter already voted."
         );
+
         require(voters[voter].weight == 0);
         voters[voter].weight = 1;
 
     }
 
-    // 把你的投票委托到投票者
+    // 把你的投票委托到投票者，to
     function delegate(address to) public{
         // 传引用
         Voter storage sender = voters[msg.sender];
 
         require(!sender.voted,"You already voted");
+
         require(to != msg.sender,"Self-delegation is disallowed");
 
         // 委托是可以传递，只有被委托者to也设置了委托
         // 一般来说，这种循环委托是危险的，因为，如果传递的链条太长，则可能需消耗的gas要多余区块中剩余的（大于区块设置的gasLimit）
         // 大于gasLimit，委托不会被执行
-        // 而在另一些情况夏，如果形成闭环，则会让合约完全卡住
+        // 而在另一些情况下，如果形成闭环，则会让合约完全卡住
 
-        while(voters[to].delegate != address[0]){
+        while(voters[to].delegate != address(0)){
             to = voters[to].delegate;
             // 不允许闭环委托
             require(to != msg.sender,"Found loop in delegation");
@@ -87,11 +90,11 @@ contract Ballot {
         // sender 是一个引用，相当于对voters[msg.sender].voted进行修改
         sender.voted = true;
         sender.delegate = to;
-        Voter storage delegate_ = voters[0];
+        Voter storage delegate_ = voters[to];
 
         if(delegate_.voted){
             // 若被委托这已经投过票了，直接增加得票数
-            proposals[delegate_.voted].voteCount += sender.weight;
+            proposals[delegate_.vote].voteCount += sender.weight;
         }else{
             // 若被委托者还没投票，增加委托者的权重
             delegate_.weight += sender.weight;
