@@ -6,13 +6,28 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_a",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
 				"inputs": [],
-				"name": "getChainId",
+				"name": "a",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "contract TestReplay",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -20,7 +35,14 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTime",
+				"name": "attack",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -45,7 +67,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Test/contracts/test.sol": "test"
+			"Test/contracts/testReplay.sol": "ContractB"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -59,12 +81,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Test/contracts/test.sol": {
-			"keccak256": "0x9c600153cf94728256480268ddabf6242146ee35287a361e61a975465f8b1f2d",
-			"license": "GPL-3.0",
+		"Test/contracts/testReplay.sol": {
+			"keccak256": "0xd741f4e2a0c010fb3b3a1b50b90a65ddfc8d800d8d4b80e9f9f067adbc907c66",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://9e65d29dfe18fe9f42531bdec7430de22554440facdca5d07c3b5b687d6bfe12",
-				"dweb:/ipfs/QmR8ueJMCEB9vyGREobd84zduC9MiuJDZPe9EaiWB3BAAp"
+				"bzz-raw://7cc56306cc991de4fbb88f1730cf3f98f3366825199403547eb80818c8eaf470",
+				"dweb:/ipfs/QmXGaMnD5uvbhNvg3AQpLGu5pjzNSjbNQhiJn4tstwCcki"
 			]
 		}
 	},

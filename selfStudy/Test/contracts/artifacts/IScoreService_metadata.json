@@ -6,29 +6,21 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "getChainId",
-				"outputs": [
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_score",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTime",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
+				"name": "IScore",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -45,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Test/contracts/test.sol": "test"
+			"Test/contracts/Score.sol": "IScoreService"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -59,12 +51,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Test/contracts/test.sol": {
-			"keccak256": "0x9c600153cf94728256480268ddabf6242146ee35287a361e61a975465f8b1f2d",
-			"license": "GPL-3.0",
+		"Test/contracts/Score.sol": {
+			"keccak256": "0x784f5f5ceee0749dc1c45da82595a60d6a351bd94a20620812e3c6a76f1cbafc",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://9e65d29dfe18fe9f42531bdec7430de22554440facdca5d07c3b5b687d6bfe12",
-				"dweb:/ipfs/QmR8ueJMCEB9vyGREobd84zduC9MiuJDZPe9EaiWB3BAAp"
+				"bzz-raw://142ca1e3f3d35dbec81101aace36d149f59ddc4b2c5d063200328b46335bbe32",
+				"dweb:/ipfs/QmQLGbVVY3wVnqgxSPsPbeWiwTXfPwTigLdwoAt8TwZQHc"
 			]
 		}
 	},

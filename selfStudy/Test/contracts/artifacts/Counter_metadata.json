@@ -7,7 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getChainId",
+				"name": "count",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -20,15 +20,9 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTime",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
+				"name": "increment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -45,7 +39,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Test/contracts/test.sol": "test"
+			"Test/contracts/testInterface.sol": "Counter"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -59,12 +53,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"Test/contracts/test.sol": {
-			"keccak256": "0x9c600153cf94728256480268ddabf6242146ee35287a361e61a975465f8b1f2d",
-			"license": "GPL-3.0",
+		"Test/contracts/testInterface.sol": {
+			"keccak256": "0xc37735b4ed5d51f8fb758b9e28fc722621c63307c45d61ba9cdccf7ecb524a97",
 			"urls": [
-				"bzz-raw://9e65d29dfe18fe9f42531bdec7430de22554440facdca5d07c3b5b687d6bfe12",
-				"dweb:/ipfs/QmR8ueJMCEB9vyGREobd84zduC9MiuJDZPe9EaiWB3BAAp"
+				"bzz-raw://cf96c4212e262bd495c793520552b499735fb86859b374463b06ad973b130968",
+				"dweb:/ipfs/QmUPztiAZVknMwCv8CA6TwAXCeYcBSHoNUW3NAVrLNa5bU"
 			]
 		}
 	},
