@@ -2,9 +2,8 @@
 pragma solidity ^0.8.0;
 
 
-// 学生成绩合约
+// Student
 contract Score{
-    // 记录学生成绩
     address public teacher;
     mapping (address => uint) StudentScore;
 
@@ -18,8 +17,8 @@ contract Score{
         teacher = _address;
     }
 
-    // external只允许外部调用
-    function IScore(address _account,uint _score) external onlyTeacher{
+    // external
+    function IScore(address _account,uint _score) public onlyTeacher{
         require(_score <= 100,"Score more then 100");
         StudentScore[_account] = _score;
     }
@@ -33,9 +32,8 @@ interface IScoreService{
     function IScore(address _account, uint _score) external;
 }
 
-// 老师合约
+// Teacher 
 contract Teacher{
-    // 定义老师地址
     address public selfAddress;
 
     IScoreService public score;

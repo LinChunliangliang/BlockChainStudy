@@ -10,7 +10,7 @@ w1/02/coverage.json
 w1/02/typechain
 
 #Hardhat files
-w1/02/cache
-w1/02/artifacts
 
-w1/02/.secret
+
+.idea
+.vscode
