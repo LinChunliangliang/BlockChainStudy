@@ -1,3 +1,40 @@
+### 以太坊
+
+- 一台世界计算机（去中心话，任何人都可以使用）
+- 一个状态机（由交易出发的状态转换系统）
+- 一个智能合约平台（计算平台）
+
+### 智能合约
+
+可执行的协议规则
+
+智能合约语言：Solidity
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+contract Counter {
+    uint public Number;  // 这个变量会一直存在链上
+    constructor() {
+        Number = 0;
+    }
+    // Add
+    function add(uint num) public {
+        Number = Number + num;
+    }
+}
+```
+
+#### 一个合约的组成
+
+#### GAS
+
+GAS是一个工作量单位，复杂度越大，所需gas越多
+
+费用=gas数量*gas单价
+
+
+
 ###Hardhat
 
 安装

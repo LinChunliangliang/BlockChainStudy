@@ -14,8 +14,5 @@ contract Counter {
     function add(uint num) public {
         Number = Number + num;
     }
-
     //
-
-
 }

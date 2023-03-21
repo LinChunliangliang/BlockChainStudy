@@ -1,6 +1,9 @@
 const {hre, network} = require("hardhat");
 const {witeAddr} = require('./artifact_log');
 
+/**
+ * It deploys a new ERC20 token contract.
+ */
 async function main(){
     const MyERC20 = await hre.ethers.getContractFactory("MYERC20");
     const token = await MyERC20.deploy();
